@@ -10,7 +10,12 @@ function findElement(arr, func) {
   
     return undefined
 }
-  
+
+// turns out JavaScript already has a built in function that literally for the sole purpose of achieving this challenge
+function findElement2 (arr, func) {
+    return arr.find(func);
+}
+
 findElement([1, 3, 5, 8, 9, 10], function(num) { return num % 2 === 0; });
 // should return 8.
 
