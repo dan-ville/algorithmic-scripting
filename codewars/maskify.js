@@ -14,39 +14,40 @@
 // maskify("Nananananananananananananananana Batman!") == "####################################man!"
 
 // *---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*
-// SOLUTIONS
+
+// My noob solution
+// // I decided not to use replace because I wanted to do it the hard way, but it turns out that's the wrong approach to coding LOL. 
+function maskify (string) {
+    if (string.length <= 4) {
+      // if the string is shorter than 4 characters
+      // simply return the string
+      // since it's too short to need masking
+      return string
+    } 
+    else {
+      // split string into an array of characters
+      let chars = string.split("")
+    
+      // grab characters all the way up to the last 4
+      // use map replace the characters with #'s
+      let firstPiece = chars
+          .slice(0, chars.length-4)
+          .map(char => "#");
+      
+      // grab last 4 characters
+      let lastPiece = chars.slice(chars.length-4);
+      
+      // concatenate firstPiece and lastPiece arrays and then use join() to turn the concatenated arrays intoa string
+      // join must be called with "" passed in or else the characters will be separated by commas
+      return firstPiece.concat(lastPiece).join("");
+    } 
+}
+
+
 // Top solution on CodeWars
 function maskify(string) {
     return string.slice(0, -4).replace(/./g, '#') + string.slice(-4);
 }
-
-// My noob solution
-// // I decided not to use replace because I wanted to do it the hard way, but it turns out that's the wrong approach to coding LOL. 
-// function maskify (string) {
-//     if (string.length <= 4) {
-//       // if the string is shorter than 4 characters
-//       // simply return the string
-//       // since it's too short to need masking
-//       return string
-//     } 
-//     else {
-//       // split string into an array of characters
-//       let chars = string.split("")
-    
-//       // grab characters all the way up to the last 4
-//       // use map replace the characters with #'s
-//       let firstPiece = chars
-//           .slice(0, chars.length-4)
-//           .map(char => "#");
-      
-//       // grab last 4 characters
-//       let lastPiece = chars.slice(chars.length-4);
-      
-//       // concatenate firstPiece and lastPiece arrays and then use join() to turn the concatenated arrays intoa string
-//       // join must be called with "" passed in or else the characters will be separated by commas
-//       return firstPiece.concat(lastPiece).join("");
-//     } 
-// }
 
 
 // *---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*
